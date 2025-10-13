@@ -12,6 +12,12 @@ type CreateProductRequest struct {
 	Description string  `json:"description"`
 }
 
+type UpdateProductRequest struct{
+	Name        string  `json:"name"`
+	Price       float64 `json:"price"`
+	Description string  `json:"description"`
+}
+
 func (r *CreateProductRequest) Validate() error {
 
 	if r.Name == "" && r.Price == 0 && r.Description == "" {
@@ -28,4 +34,11 @@ func (r *CreateProductRequest) Validate() error {
 		return errParamIsRequired("description", "string")
 	}
 	return nil
+}
+
+func (r *UpdateProductRequest) Validate() error{
+	if r.Name != "" || r.Price >=0 || r.Description != ""{
+		return nil
+	}
+	return fmt.Errorf("request body is empty")
 }
