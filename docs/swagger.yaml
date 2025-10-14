@@ -1,4 +1,228 @@
+definitions:
+  product.CreateProductRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  product.CreateProductResponse:
+    properties:
+      data:
+        $ref: '#/definitions/schemas.ProductResponse'
+      message:
+        type: string
+    type: object
+  product.DeleteProductResponse:
+    properties:
+      data:
+        $ref: '#/definitions/schemas.ProductResponse'
+      message:
+        type: string
+    type: object
+  product.ErrorResponse:
+    properties:
+      errorCode:
+        type: string
+      message:
+        type: string
+    type: object
+  product.GetAllProductsResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/schemas.ProductResponse'
+        type: array
+      message:
+        type: string
+    type: object
+  product.GetProductByIdResponse:
+    properties:
+      data:
+        $ref: '#/definitions/schemas.ProductResponse'
+      message:
+        type: string
+    type: object
+  product.UpdateProductRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  product.UpdateProductResponse:
+    properties:
+      data:
+        $ref: '#/definitions/schemas.ProductResponse'
+      message:
+        type: string
+    type: object
+  schemas.ProductResponse:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      price:
+        type: number
+      updated_at:
+        type: string
+    type: object
 info:
   contact: {}
-paths: {}
+paths:
+  /product:
+    post:
+      consumes:
+      - application/json
+      description: Create a new product
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/product.CreateProductRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.CreateProductResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+      summary: Create product
+      tags:
+      - Product
+  /product/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a Product
+      parameters:
+      - description: Product identification
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.DeleteProductResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+      summary: Delete Product
+      tags:
+      - Product
+    get:
+      consumes:
+      - application/json
+      description: Show a product
+      parameters:
+      - description: Product identification
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.GetProductByIdResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+      summary: Show product
+      tags:
+      - Product
+    put:
+      consumes:
+      - application/json
+      description: Update a product
+      parameters:
+      - description: Product Identification
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: Product data to Update
+        in: body
+        name: opening
+        required: true
+        schema:
+          $ref: '#/definitions/product.UpdateProductRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.UpdateProductResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+      summary: Update product
+      tags:
+      - Product
+  /products:
+    get:
+      consumes:
+      - application/json
+      description: List all products
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.GetAllProductsResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/product.ErrorResponse'
+      summary: List products
+      tags:
+      - Product
 swagger: "2.0"

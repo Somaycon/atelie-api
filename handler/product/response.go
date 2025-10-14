@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/Somaycon/atelie-api/schemas"
 	"github.com/gin-gonic/gin"
 )
 
@@ -21,4 +22,33 @@ func sendSucess(ctx *gin.Context, op string, data interface{}) {
 		"message": fmt.Sprintf("operation %s sucess", op),
 		"data": data,
 	})
+}
+
+type ErrorResponse struct {
+	Message string `json:"message"`
+	ErrorCode string `json:"errorCode"`
+}
+
+type CreateProductResponse struct {
+	Message string `json:"message"`
+	Data  schemas.ProductResponse `json:"data"`
+}
+
+type DeleteProductResponse struct {
+	Message string `json:"message"`
+	Data  schemas.ProductResponse `json:"data"`
+}
+type UpdateProductResponse struct {
+	Message string `json:"message"`
+	Data  schemas.ProductResponse `json:"data"`
+}
+
+type GetProductByIdResponse struct {
+	Message string `json:"message"`
+	Data  schemas.ProductResponse `json:"data"`
+}
+
+type GetAllProductsResponse struct {
+	Message string `json:"message"`
+	Data []schemas.ProductResponse `json:"data"`
 }

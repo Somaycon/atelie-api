@@ -8,6 +8,18 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @BasePath /api/v1
+
+// @Summary Show product
+// @Description Show a product
+// @Tags Product
+// @Accept json
+// @Produce json
+// @Param id query string true "Product identification"
+// @Success 200 {object} product.GetProductByIdResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 404 {object} ErrorResponse
+// @Router /product/{id} [get]
 func GetProductByIdHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 

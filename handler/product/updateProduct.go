@@ -8,6 +8,20 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @BasePath /api/v1
+
+// @Summary Update product
+// @Description Update a product
+// @Tags Product
+// @Accept json
+// @Produce json
+// @Param id query string true "Product Identification"
+// @Param opening body product.UpdateProductRequest true "Product data to Update"
+// @Success 200 {object} product.UpdateProductResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 404 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /product/{id} [put]
 func UpdateProductHandler(ctx *gin.Context) {
 	request := UpdateProductRequest{}
 
