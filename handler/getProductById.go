@@ -1,4 +1,4 @@
-package product
+package handler
 
 import (
 	"fmt"
@@ -16,7 +16,7 @@ import (
 // @Accept json
 // @Produce json
 // @Param id query string true "Product identification"
-// @Success 200 {object} product.GetProductByIdResponse
+// @Success 200 {object} GetProductByIdResponse
 // @Failure 400 {object} ErrorResponse
 // @Failure 404 {object} ErrorResponse
 // @Router /product/{id} [get]

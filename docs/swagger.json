@@ -24,7 +24,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/product.CreateProductRequest"
+                            "$ref": "#/definitions/handler.CreateProductRequest"
                         }
                     }
                 ],
@@ -32,19 +32,19 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.CreateProductResponse"
+                            "$ref": "#/definitions/handler.CreateProductResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -76,19 +76,19 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.GetProductByIdResponse"
+                            "$ref": "#/definitions/handler.GetProductByIdResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -119,7 +119,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/product.UpdateProductRequest"
+                            "$ref": "#/definitions/handler.UpdateProductRequest"
                         }
                     }
                 ],
@@ -127,25 +127,25 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.UpdateProductResponse"
+                            "$ref": "#/definitions/handler.UpdateProductResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -175,19 +175,19 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.DeleteProductResponse"
+                            "$ref": "#/definitions/handler.DeleteProductResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -210,13 +210,13 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.GetAllProductsResponse"
+                            "$ref": "#/definitions/handler.GetAllProductsResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -224,7 +224,7 @@
         }
     },
     "definitions": {
-        "product.CreateProductRequest": {
+        "handler.CreateProductRequest": {
             "type": "object",
             "properties": {
                 "description": {
@@ -238,7 +238,7 @@
                 }
             }
         },
-        "product.CreateProductResponse": {
+        "handler.CreateProductResponse": {
             "type": "object",
             "properties": {
                 "data": {
@@ -249,7 +249,7 @@
                 }
             }
         },
-        "product.DeleteProductResponse": {
+        "handler.DeleteProductResponse": {
             "type": "object",
             "properties": {
                 "data": {
@@ -260,7 +260,7 @@
                 }
             }
         },
-        "product.ErrorResponse": {
+        "handler.ErrorResponse": {
             "type": "object",
             "properties": {
                 "errorCode": {
@@ -271,7 +271,7 @@
                 }
             }
         },
-        "product.GetAllProductsResponse": {
+        "handler.GetAllProductsResponse": {
             "type": "object",
             "properties": {
                 "data": {
@@ -285,7 +285,7 @@
                 }
             }
         },
-        "product.GetProductByIdResponse": {
+        "handler.GetProductByIdResponse": {
             "type": "object",
             "properties": {
                 "data": {
@@ -296,7 +296,7 @@
                 }
             }
         },
-        "product.UpdateProductRequest": {
+        "handler.UpdateProductRequest": {
             "type": "object",
             "properties": {
                 "description": {
@@ -310,7 +310,7 @@
                 }
             }
         },
-        "product.UpdateProductResponse": {
+        "handler.UpdateProductResponse": {
             "type": "object",
             "properties": {
                 "data": {

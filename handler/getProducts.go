@@ -1,4 +1,4 @@
-package product
+package handler
 
 import (
 	"net/http"
@@ -14,7 +14,7 @@ import (
 // @Tags Product
 // @Accept json
 // @Produce json
-// @Success 200 {object} product.GetAllProductsResponse
+// @Success 200 {object} GetAllProductsResponse
 // @Failure 500 {object} ErrorResponse
 // @Router /products [get]
 func GetAllProductsHendler(ctx *gin.Context) {

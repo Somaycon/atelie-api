@@ -2,7 +2,6 @@ package handler
 
 import (
 	"github.com/Somaycon/atelie-api/config"
-	"github.com/Somaycon/atelie-api/handler/product"
 	"gorm.io/gorm"
 )
 
@@ -14,5 +13,4 @@ var (
 func InitializeHandler() {
 	logger = config.GetLogger("handler")
 	db = config.GetDb()
-	product.InitializeProductHandler()
 }

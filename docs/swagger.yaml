@@ -1,5 +1,5 @@
 definitions:
-  product.CreateProductRequest:
+  handler.CreateProductRequest:
     properties:
       description:
         type: string
@@ -8,28 +8,28 @@ definitions:
       price:
         type: number
     type: object
-  product.CreateProductResponse:
+  handler.CreateProductResponse:
     properties:
       data:
         $ref: '#/definitions/schemas.ProductResponse'
       message:
         type: string
     type: object
-  product.DeleteProductResponse:
+  handler.DeleteProductResponse:
     properties:
       data:
         $ref: '#/definitions/schemas.ProductResponse'
       message:
         type: string
     type: object
-  product.ErrorResponse:
+  handler.ErrorResponse:
     properties:
       errorCode:
         type: string
       message:
         type: string
     type: object
-  product.GetAllProductsResponse:
+  handler.GetAllProductsResponse:
     properties:
       data:
         items:
@@ -38,14 +38,14 @@ definitions:
       message:
         type: string
     type: object
-  product.GetProductByIdResponse:
+  handler.GetProductByIdResponse:
     properties:
       data:
         $ref: '#/definitions/schemas.ProductResponse'
       message:
         type: string
     type: object
-  product.UpdateProductRequest:
+  handler.UpdateProductRequest:
     properties:
       description:
         type: string
@@ -54,7 +54,7 @@ definitions:
       price:
         type: number
     type: object
-  product.UpdateProductResponse:
+  handler.UpdateProductResponse:
     properties:
       data:
         $ref: '#/definitions/schemas.ProductResponse'
@@ -92,22 +92,22 @@ paths:
         name: request
         required: true
         schema:
-          $ref: '#/definitions/product.CreateProductRequest'
+          $ref: '#/definitions/handler.CreateProductRequest'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/product.CreateProductResponse'
+            $ref: '#/definitions/handler.CreateProductResponse'
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
       summary: Create product
       tags:
       - Product
@@ -128,15 +128,15 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/product.DeleteProductResponse'
+            $ref: '#/definitions/handler.DeleteProductResponse'
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
       summary: Delete Product
       tags:
       - Product
@@ -156,15 +156,15 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/product.GetProductByIdResponse'
+            $ref: '#/definitions/handler.GetProductByIdResponse'
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
       summary: Show product
       tags:
       - Product
@@ -183,26 +183,26 @@ paths:
         name: opening
         required: true
         schema:
-          $ref: '#/definitions/product.UpdateProductRequest'
+          $ref: '#/definitions/handler.UpdateProductRequest'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/product.UpdateProductResponse'
+            $ref: '#/definitions/handler.UpdateProductResponse'
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
       summary: Update product
       tags:
       - Product
@@ -217,11 +217,11 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/product.GetAllProductsResponse'
+            $ref: '#/definitions/handler.GetAllProductsResponse'
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/product.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
       summary: List products
       tags:
       - Product

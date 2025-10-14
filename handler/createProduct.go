@@ -1,4 +1,4 @@
-package product
+package handler
 
 import (
 	"net/http"
@@ -14,8 +14,8 @@ import (
 // @Tags Product
 // @Accept json
 // @Produce json
-// @Param request body product.CreateProductRequest true "Request body"
-// @Success 200 {object} product.CreateProductResponse
+// @Param request body CreateProductRequest true "Request body"
+// @Success 200 {object} CreateProductResponse
 // @Failure 400 {object} ErrorResponse
 // @Failure 500 {object} ErrorResponse
 // @Router /product [post]

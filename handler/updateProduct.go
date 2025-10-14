@@ -1,4 +1,4 @@
-package product
+package handler
 
 import (
 	"fmt"
@@ -16,8 +16,8 @@ import (
 // @Accept json
 // @Produce json
 // @Param id query string true "Product Identification"
-// @Param opening body product.UpdateProductRequest true "Product data to Update"
-// @Success 200 {object} product.UpdateProductResponse
+// @Param opening body UpdateProductRequest true "Product data to Update"
+// @Success 200 {object} UpdateProductResponse
 // @Failure 400 {object} ErrorResponse
 // @Failure 404 {object} ErrorResponse
 // @Failure 500 {object} ErrorResponse

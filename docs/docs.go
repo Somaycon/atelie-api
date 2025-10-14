@@ -35,7 +35,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/product.CreateProductRequest"
+                            "$ref": "#/definitions/handler.CreateProductRequest"
                         }
                     }
                 ],
@@ -43,19 +43,19 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.CreateProductResponse"
+                            "$ref": "#/definitions/handler.CreateProductResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -87,19 +87,19 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.GetProductByIdResponse"
+                            "$ref": "#/definitions/handler.GetProductByIdResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -130,7 +130,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/product.UpdateProductRequest"
+                            "$ref": "#/definitions/handler.UpdateProductRequest"
                         }
                     }
                 ],
@@ -138,25 +138,25 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.UpdateProductResponse"
+                            "$ref": "#/definitions/handler.UpdateProductResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -186,19 +186,19 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.DeleteProductResponse"
+                            "$ref": "#/definitions/handler.DeleteProductResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "Not Found",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -221,13 +221,13 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/product.GetAllProductsResponse"
+                            "$ref": "#/definitions/handler.GetAllProductsResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/product.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -235,7 +235,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "product.CreateProductRequest": {
+        "handler.CreateProductRequest": {
             "type": "object",
             "properties": {
                 "description": {
@@ -249,7 +249,7 @@ const docTemplate = `{
                 }
             }
         },
-        "product.CreateProductResponse": {
+        "handler.CreateProductResponse": {
             "type": "object",
             "properties": {
                 "data": {
@@ -260,7 +260,7 @@ const docTemplate = `{
                 }
             }
         },
-        "product.DeleteProductResponse": {
+        "handler.DeleteProductResponse": {
             "type": "object",
             "properties": {
                 "data": {
@@ -271,7 +271,7 @@ const docTemplate = `{
                 }
             }
         },
-        "product.ErrorResponse": {
+        "handler.ErrorResponse": {
             "type": "object",
             "properties": {
                 "errorCode": {
@@ -282,7 +282,7 @@ const docTemplate = `{
                 }
             }
         },
-        "product.GetAllProductsResponse": {
+        "handler.GetAllProductsResponse": {
             "type": "object",
             "properties": {
                 "data": {
@@ -296,7 +296,7 @@ const docTemplate = `{
                 }
             }
         },
-        "product.GetProductByIdResponse": {
+        "handler.GetProductByIdResponse": {
             "type": "object",
             "properties": {
                 "data": {
@@ -307,7 +307,7 @@ const docTemplate = `{
                 }
             }
         },
-        "product.UpdateProductRequest": {
+        "handler.UpdateProductRequest": {
             "type": "object",
             "properties": {
                 "description": {
@@ -321,7 +321,7 @@ const docTemplate = `{
                 }
             }
         },
-        "product.UpdateProductResponse": {
+        "handler.UpdateProductResponse": {
             "type": "object",
             "properties": {
                 "data": {
