@@ -1,4 +1,20 @@
 definitions:
+  handler.CreateMaterialRequest:
+    properties:
+      name:
+        type: string
+      pricePerUnit:
+        type: number
+      quantity:
+        type: integer
+    type: object
+  handler.CreateMaterialResponse:
+    properties:
+      data:
+        $ref: '#/definitions/schemas.MaterialResponse'
+      message:
+        type: string
+    type: object
   handler.CreateProductRequest:
     properties:
       description:
@@ -12,6 +28,13 @@ definitions:
     properties:
       data:
         $ref: '#/definitions/schemas.ProductResponse'
+      message:
+        type: string
+    type: object
+  handler.DeleteMaterialResponse:
+    properties:
+      data:
+        $ref: '#/definitions/schemas.MaterialResponse'
       message:
         type: string
     type: object
@@ -29,6 +52,15 @@ definitions:
       message:
         type: string
     type: object
+  handler.GetAllMaterialsResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/schemas.MaterialResponse'
+        type: array
+      message:
+        type: string
+    type: object
   handler.GetAllProductsResponse:
     properties:
       data:
@@ -38,10 +70,33 @@ definitions:
       message:
         type: string
     type: object
+  handler.GetMaterialByIdResponse:
+    properties:
+      data:
+        $ref: '#/definitions/schemas.MaterialResponse'
+      message:
+        type: string
+    type: object
   handler.GetProductByIdResponse:
     properties:
       data:
         $ref: '#/definitions/schemas.ProductResponse'
+      message:
+        type: string
+    type: object
+  handler.UpdateMaterialRequest:
+    properties:
+      name:
+        type: string
+      pricePerUnit:
+        type: number
+      quantity:
+        type: integer
+    type: object
+  handler.UpdateMaterialResponse:
+    properties:
+      data:
+        $ref: '#/definitions/schemas.MaterialResponse'
       message:
         type: string
     type: object
@@ -59,6 +114,23 @@ definitions:
       data:
         $ref: '#/definitions/schemas.ProductResponse'
       message:
+        type: string
+    type: object
+  schemas.MaterialResponse:
+    properties:
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      pricePerUnit:
+        type: number
+      quantity:
+        type: integer
+      updatedAt:
         type: string
     type: object
   schemas.ProductResponse:
@@ -81,6 +153,150 @@ definitions:
 info:
   contact: {}
 paths:
+  /material:
+    post:
+      consumes:
+      - application/json
+      description: Create a new material
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateMaterialRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.CreateMaterialResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Create material
+      tags:
+      - Material
+  /material/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a material
+      parameters:
+      - description: Material identification
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DeleteMaterialResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Delete material
+      tags:
+      - Material
+    get:
+      consumes:
+      - application/json
+      description: Show a material
+      parameters:
+      - description: Material identification
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GetMaterialByIdResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Show material
+      tags:
+      - Material
+    put:
+      consumes:
+      - application/json
+      description: Update a material
+      parameters:
+      - description: Material Identification
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: Material data to Update
+        in: body
+        name: opening
+        required: true
+        schema:
+          $ref: '#/definitions/handler.UpdateMaterialRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.UpdateMaterialResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: Update material
+      tags:
+      - Material
+  /materials:
+    get:
+      consumes:
+      - application/json
+      description: List all materials
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GetAllMaterialsResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      summary: List materials
+      tags:
+      - Material
   /product:
     post:
       consumes:

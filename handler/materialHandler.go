@@ -8,6 +8,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @BasePath /api/v1
+
+// @Summary List materials
+// @Description List all materials
+// @Tags Material
+// @Accept json
+// @Produce json
+// @Success 200 {object} GetAllMaterialsResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /materials [get]
 func GetAllMaterialsHandler(ctx *gin.Context) {
 	materials := []schemas.Materials{}
 
@@ -18,6 +28,18 @@ func GetAllMaterialsHandler(ctx *gin.Context) {
 	sendSucess(ctx, "get-all-materials", materials)
 }
 
+// @BasePath /api/v1
+
+// @Summary Show material
+// @Description Show a material
+// @Tags Material
+// @Accept json
+// @Produce json
+// @Param id query string true "Material identification"
+// @Success 200 {object} GetMaterialByIdResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 404 {object} ErrorResponse
+// @Router /material/{id} [get]
 func GetMaterialByIdHandler(ctx *gin.Context){
 	id := ctx.Param("id")
 
@@ -34,6 +56,18 @@ func GetMaterialByIdHandler(ctx *gin.Context){
 	sendSucess(ctx, "get-material-by-id", material)
 }
 
+// @BasePath /api/v1
+
+// @Summary Create material
+// @Description Create a new material
+// @Tags Material
+// @Accept json
+// @Produce json
+// @Param request body CreateMaterialRequest true "Request body"
+// @Success 200 {object} CreateMaterialResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /material [post]
 func CreateMaterialHandler(ctx *gin.Context) {
 	request := CreateMaterialRequest{}
 
@@ -59,6 +93,22 @@ func CreateMaterialHandler(ctx *gin.Context) {
 	sendSucess(ctx, "create-material", material)
 }
 
+
+
+// @BasePath /api/v1
+
+// @Summary Update material
+// @Description Update a material
+// @Tags Material
+// @Accept json
+// @Produce json
+// @Param id query string true "Material Identification"
+// @Param opening body UpdateMaterialRequest true "Material data to Update"
+// @Success 200 {object} UpdateMaterialResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 404 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /material/{id} [put]
 func UpdateMaterialHandler(ctx *gin.Context){
 	id := ctx.Param("id")
 	request := UpdateMaterialRequest{}
@@ -101,6 +151,18 @@ func UpdateMaterialHandler(ctx *gin.Context){
 	sendSucess(ctx, "update-material", material)
 }
 
+// @BasePath /api/v1
+
+// @Summary Delete material
+// @Description Delete a material
+// @Tags Material
+// @Accept json
+// @Produce json
+// @Param id query string true "Material identification"
+// @Success 200 {object} DeleteMaterialResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 404 {object} ErrorResponse
+// @Router /material/{id} [delete]
 func DeleteMaterialHandler(ctx *gin.Context) {
 	id:= ctx.Param("id")
 
