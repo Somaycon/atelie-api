@@ -8,7 +8,6 @@ import (
 
 var (
 	db *gorm.DB
-	loggger *Logger
 )
 
 func Init() error{

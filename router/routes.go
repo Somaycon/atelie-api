@@ -20,6 +20,12 @@ func initializeRoutes(router *gin.Engine) {
 		v1.POST("/product", handler.CreateProductHandler)
 		v1.PUT("/product/:id", handler.UpdateProductHandler)
 		v1.DELETE("/product/:id",handler.DeleteProductHandler)
+
+		v1.GET("/materials", handler.GetAllMaterialsHandler)
+		v1.GET("/material/:id", handler.GetMaterialByIdHandler)
+		v1.POST("/material", handler.CreateMaterialHandler)
+		v1.PUT("/material/:id", handler.UpdateMaterialHandler)
+		v1.DELETE("/material/:id", handler.DeleteMaterialHandler)
 	}
 	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }
