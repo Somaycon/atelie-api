@@ -4,8 +4,10 @@ import "gorm.io/gorm"
 
 type MaterialsList struct {
 	gorm.Model
-	Product   Products `gorm:"foreignKey:ProductId"`
-	Materials Materials `gorm:"foreignKey:MaterialId"`
+	ProductID  uint     `json:"productId"`
+	Product    Products `gorm:"foreignKey:ProductID"`
+	MaterialID uint     `json:"materialId"`
+	Materials  Materials `gorm:"foreignKey:MaterialID"`
 	Quantity  int `json:"quantity"`
 }
 
