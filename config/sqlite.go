@@ -36,7 +36,7 @@ func InitializeSQLite() (*gorm.DB, error) {
 		return nil, err
 	}
 	// Ensure all schema models are migrated so their tables are created
-	err = db.AutoMigrate(&schemas.Products{}, &schemas.Materials{})
+	err = db.AutoMigrate(&schemas.Products{}, &schemas.Materials{}, &schemas.MaterialsList{})
 	if err != nil{
 		logger.Errorf("Sqlite AutoMigrate error: %v", err)
 		return nil, err
