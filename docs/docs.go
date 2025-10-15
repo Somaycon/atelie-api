@@ -456,14 +456,14 @@ const docTemplate = `{
         "handler.CreateMaterialRequest": {
             "type": "object",
             "properties": {
+                "currentStock": {
+                    "type": "integer"
+                },
                 "name": {
                     "type": "string"
                 },
                 "pricePerUnit": {
                     "type": "number"
-                },
-                "quantity": {
-                    "type": "integer"
                 }
             }
         },
@@ -589,14 +589,14 @@ const docTemplate = `{
         "handler.UpdateMaterialRequest": {
             "type": "object",
             "properties": {
+                "currentStock": {
+                    "type": "integer"
+                },
                 "name": {
                     "type": "string"
                 },
                 "pricePerUnit": {
                     "type": "number"
-                },
-                "quantity": {
-                    "type": "integer"
                 }
             }
         },
@@ -642,6 +642,9 @@ const docTemplate = `{
                 "createdAt": {
                     "type": "string"
                 },
+                "currentStock": {
+                    "type": "integer"
+                },
                 "deletedAt": {
                     "type": "string"
                 },
@@ -653,9 +656,6 @@ const docTemplate = `{
                 },
                 "pricePerUnit": {
                     "type": "number"
-                },
-                "quantity": {
-                    "type": "integer"
                 },
                 "updatedAt": {
                     "type": "string"

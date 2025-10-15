@@ -81,7 +81,7 @@ func CreateMaterialHandler(ctx *gin.Context) {
 
 	material := schemas.Materials{
 		Name:         request.Name,
-		Quantity:     request.Quantity,
+		CurrentStock:     request.CurrentStock,
 		PricePerUnit: request.PricePerUnit,
 	}
 
@@ -135,8 +135,8 @@ func UpdateMaterialHandler(ctx *gin.Context){
 		material.Name = request.Name
 	}
 
-	if request.Quantity >= 0 {
-		material.Quantity = request.Quantity
+	if request.CurrentStock >= 0 {
+		material.CurrentStock = request.CurrentStock
 	}
 
 	if request.PricePerUnit >= 0 {

@@ -1,12 +1,12 @@
 definitions:
   handler.CreateMaterialRequest:
     properties:
+      currentStock:
+        type: integer
       name:
         type: string
       pricePerUnit:
         type: number
-      quantity:
-        type: integer
     type: object
   handler.CreateMaterialResponse:
     properties:
@@ -86,12 +86,12 @@ definitions:
     type: object
   handler.UpdateMaterialRequest:
     properties:
+      currentStock:
+        type: integer
       name:
         type: string
       pricePerUnit:
         type: number
-      quantity:
-        type: integer
     type: object
   handler.UpdateMaterialResponse:
     properties:
@@ -120,6 +120,8 @@ definitions:
     properties:
       createdAt:
         type: string
+      currentStock:
+        type: integer
       deletedAt:
         type: string
       id:
@@ -128,8 +130,6 @@ definitions:
         type: string
       pricePerUnit:
         type: number
-      quantity:
-        type: integer
       updatedAt:
         type: string
     type: object

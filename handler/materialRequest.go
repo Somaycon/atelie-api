@@ -4,18 +4,18 @@ import "fmt"
 
 type CreateMaterialRequest struct {
 	Name         string  `json:"name"`
-	Quantity     int     `json:"quantity"`
+	CurrentStock     int     `json:"currentStock"`
 	PricePerUnit float64 `json:"pricePerUnit"`
 }
 
 type UpdateMaterialRequest struct {
 	Name         string  `json:"name"`
-	Quantity     int     `json:"quantity"`
+	CurrentStock     int     `json:"currentStock"`
 	PricePerUnit float64 `json:"pricePerUnit"`
 }
 
 func (r *CreateMaterialRequest) Validate() error {
-	if r.Name == "" || r.Quantity <= 0 || r.PricePerUnit <= 0 {
+	if r.Name == "" || r.CurrentStock <= 0 || r.PricePerUnit <= 0 {
 		return fmt.Errorf("all fields are required and must be valid")
 	}
 
@@ -23,7 +23,7 @@ func (r *CreateMaterialRequest) Validate() error {
 		return errParamIsRequired("name", "string")
 	}
 
-	if r.Quantity <= 0 {
+	if r.CurrentStock <= 0 {
 		return errParamIsRequired("quantity", "int")
 	}
 
@@ -34,7 +34,7 @@ func (r *CreateMaterialRequest) Validate() error {
 }
 
 func (r *UpdateMaterialRequest) Validate() error {
-	if r.Name != "" || r.Quantity >= 0 || r.PricePerUnit >= 0 {
+	if r.Name != "" || r.CurrentStock >= 0 || r.PricePerUnit >= 0 {
 		return nil
 	}
 	return fmt.Errorf("request body is empty")

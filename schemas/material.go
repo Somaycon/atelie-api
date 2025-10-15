@@ -9,7 +9,7 @@ import (
 type Materials struct {
 	gorm.Model
 	Name         string
-	Quantity     int
+	CurrentStock     int
 	PricePerUnit float64
 }
 
@@ -19,6 +19,6 @@ type MaterialResponse struct {
 	UpdatedAt    *time.Time     `json:"updatedAt"`
 	DeletedAt    *time.Time `json:"deletedAt,omitempty"`
 	Name         string     `json:"name"`
-	Quantity     int        `json:"quantity"`
+	CurrentStock     int        `json:"currentStock"`
 	PricePerUnit float64    `json:"pricePerUnit"`
 }

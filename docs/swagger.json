@@ -445,14 +445,14 @@
         "handler.CreateMaterialRequest": {
             "type": "object",
             "properties": {
+                "currentStock": {
+                    "type": "integer"
+                },
                 "name": {
                     "type": "string"
                 },
                 "pricePerUnit": {
                     "type": "number"
-                },
-                "quantity": {
-                    "type": "integer"
                 }
             }
         },
@@ -578,14 +578,14 @@
         "handler.UpdateMaterialRequest": {
             "type": "object",
             "properties": {
+                "currentStock": {
+                    "type": "integer"
+                },
                 "name": {
                     "type": "string"
                 },
                 "pricePerUnit": {
                     "type": "number"
-                },
-                "quantity": {
-                    "type": "integer"
                 }
             }
         },
@@ -631,6 +631,9 @@
                 "createdAt": {
                     "type": "string"
                 },
+                "currentStock": {
+                    "type": "integer"
+                },
                 "deletedAt": {
                     "type": "string"
                 },
@@ -642,9 +645,6 @@
                 },
                 "pricePerUnit": {
                     "type": "number"
-                },
-                "quantity": {
-                    "type": "integer"
                 },
                 "updatedAt": {
                     "type": "string"
